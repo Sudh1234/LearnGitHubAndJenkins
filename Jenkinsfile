@@ -1,12 +1,41 @@
-echo 'hello from Pipeline'
+pipeline {
 
-node {
-  git url: 'https://github.com/Sudh1234/LearnGitHubAndJenkins.git'
- def mvnHome = tool 'M3'
-  
+	//agent any
+	agent none
 
-  sh "${mvnHome}/bin/mvn -B -Dmaven.test.failure.ignore verify"
-  step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])
-  step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
+	stages {
+	
+		
+		stage('Compile Stage') {
+		agent { label 'UbuntuPC' }
+			steps {
+				//	sh 'mvn clean compile'
+				sh 'ifconfig'
+				echo 'compile stage'
+				
+			}
+		}
+		
+		stage('Testing Stage') {
+		agent { label 'UbuntuPC2' }
+			steps {
+				sh 'ifconfig'
+				echo 'Testing stage'
+				//sh 'mvn test'
+			}
+		}
+		
+		stage('Deployment Stage') {
+		agent { label 'UbuntuPC' }
+			steps {
+					//sh 'mvn deploy'
+					echo 'Deployment is going on'
+					sh 'ifconfig'
+					
+			}
+		}
+		
+
+	}
+	
 }
-  
