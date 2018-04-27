@@ -16,7 +16,7 @@ pipeline {
 		}
 		
 		stage('Testing Stage') {
-		agent { label 'FirstNode' }
+		agent { label 'NileshFirstNode' }
 			steps {
 				echo 'Testing stage'
 				sh 'mvn test'
