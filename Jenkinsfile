@@ -5,35 +5,31 @@ pipeline {
 
 	stages {
 	
-		
-		stage('Compile Stage') {
+				stage('Compile Stage') {
 		agent { label 'FirstNode' }
 			steps {
-				//	sh 'mvn clean compile'
-				sh 'ifconfig'
+				sh 'mvn clean compile'
 				echo 'compile stage'
-				
+				sh 'mvn compile'
 			}
 		}
 		
 		stage('Testing Stage') {
-		agent { label 'FirstNode' }
+		agent { label 'NileshFirstNode' }
 			steps {
-				sh 'ifconfig'
 				echo 'Testing stage'
-				//sh 'mvn test'
+				sh 'mvn test'
 			}
 		}
 		
 		stage('Deployment Stage') {
 		agent { label 'FirstNode' }
 			steps {
-					//sh 'mvn deploy'
 					echo 'Deployment is going on'
-					sh 'ifconfig'
-					
+					sh 'mvn install'
 			}
 		}
+		
 		
 
 	}
