@@ -4,9 +4,9 @@ pipeline {
 	agent none
 
 	stages {
-	
+
 				stage('Clean Stage') {
-		agent { label 'FirstNode' }
+		agent { label 'MyNode' }
 			steps {
 				sh 'mvn clean'
 				
@@ -30,7 +30,7 @@ pipeline {
 		}
 		
 		stage('Install stage') {
-		agent { label 'FirstNode' }
+		agent { label 'MyNode' }
 			steps {
 					echo 'install stage'
 					sh 'mvn install'
