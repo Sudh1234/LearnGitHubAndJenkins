@@ -5,7 +5,7 @@ pipeline {
 
 	stages {
 	
-				stage('Compile Stage') {
+				stage('Clean Stage') {
 		agent { label 'FirstNode' }
 			steps {
 				sh 'mvn clean'
@@ -21,7 +21,7 @@ pipeline {
 			}
 		}
 		
-		stage('compile stage') {
+		stage('Compile stage') {
 		agent { label 'ApatleNode'}
 			steps {
 					echo 'compile stage'
@@ -29,7 +29,7 @@ pipeline {
 			}
 		}
 		
-		stage('install stage') {
+		stage('Install stage') {
 		agent { label 'FirstNode' }
 			steps {
 					echo 'install stage'
