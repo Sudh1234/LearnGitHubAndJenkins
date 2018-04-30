@@ -1,4 +1,4 @@
-package com.securview.engg.demo_one;
+package com.engg;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -33,6 +33,8 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+    	App app = new App();
+        assertEquals("10 is a even number", true, app.isEvenNumber(10));
     }
+
 }
