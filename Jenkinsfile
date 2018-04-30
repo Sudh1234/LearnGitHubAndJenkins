@@ -26,6 +26,7 @@ pipeline {
 			steps {
 				echo 'Testing stage'
 				sh 'mvn test'
+				 step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
 			}
 		}
 		
@@ -34,14 +35,15 @@ pipeline {
 			steps {
 					echo 'install stage'
 					sh 'mvn install'
+				 step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])
 			}
+			
 		}
 
 	}
 	
-	post {
-   success {
-      archive "target/**/*"
+	
+ 
    }
 }
 	
