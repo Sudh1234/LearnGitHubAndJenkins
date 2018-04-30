@@ -1,5 +1,10 @@
 package com.engg;
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -31,10 +36,49 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
+    @org.junit.Test
+    public void test()
     {
     	App app = new App();
         assertEquals("10 is a even number", true, app.isEvenNumber(10));
+        
     }
+    
+    @org.junit.Test(timeout=1000)
+    public void testWithTimeout()
+    {
+    	App app = new App();
+    	 assertEquals("String convert to int", true, app.isStringIsInterger("3   "));
+    }
+    
+    @BeforeClass
+    public void testBeforeClass()
+    {
+    	App app = new App();
+    	assertEquals("4 is a even number", true, app.isEvenNumber(4));
+    }
+    
+    @Before
+    public void testBefore()
+    {
+    	App app = new App();
+        assertEquals("Spaces are empty string", true, app.isEmptyString("      "));
+    }
+    
+    
+    @AfterClass
+    public void testAfterClass()
+    {
+    	App app = new App();
+    	 assertEquals("6 is a even number", true, app.isEvenNumber(6));
+    }
+    
+    @After
+    public void testAfter()
+    {
+    	App app = new App();
+    	 assertEquals("String convert to int", true, app.isStringIsInterger(" 23132434   "));
+    }
+    
 
 }
