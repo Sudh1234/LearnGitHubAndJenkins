@@ -8,9 +8,8 @@ pipeline {
 				stage('Compile Stage') {
 		agent { label 'FirstNode' }
 			steps {
-				sh 'mvn clean compile'
-				echo 'compile stage'
-				sh 'mvn compile'
+				sh 'mvn clean'
+				
 			}
 		}
 		
@@ -22,15 +21,21 @@ pipeline {
 			}
 		}
 		
-		stage('Deployment Stage') {
-		agent { label 'FirstNode' }
+		stage('compile stage') {
+		agent { label 'ApatleNode'}
 			steps {
-					echo 'Deployment is going on'
-					sh 'mvn install'
+					echo 'compile stage'
+					sh 'mvn compile'
 			}
 		}
 		
-		
+		stage('install stage') {
+		agent { label 'FirstNode' }
+			steps {
+					echo 'install stage'
+					sh 'mvn install'
+			}
+		}
 
 	}
 	
