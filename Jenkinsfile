@@ -13,19 +13,19 @@ pipeline {
 			}
 		}
 		
-		stage('Testing Stage') {
-		agent { label 'NileshFirstNode' }
-			steps {
-				echo 'Testing stage'
-				sh 'mvn test'
-			}
-		}
-		
 		stage('Compile stage') {
 		agent { label 'ApatleNode'}
 			steps {
 					echo 'compile stage'
 					sh 'mvn compile'
+			}
+		}
+		
+		stage('Testing Stage') {
+		agent { label 'NileshFirstNode' }
+			steps {
+				echo 'Testing stage'
+				sh 'mvn test'
 			}
 		}
 		
