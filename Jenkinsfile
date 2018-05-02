@@ -9,7 +9,6 @@ pipeline {
 		agent { label 'MyNode' }
 			steps {
 				sh 'mvn clean'
-				
 			}
 		}
 		
