@@ -11,7 +11,7 @@ public class App
 		printMessage();
 	}
 	
-	public static String s="22";
+	public static final String s="22";
 
 	public static String getMessage() {
 
