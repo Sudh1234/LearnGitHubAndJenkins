@@ -11,7 +11,7 @@ public class App
 		printMessage();
 	}
 	
-	public static String s;
+	public static String s="22";
 
 	public static String getMessage() {
 
@@ -25,7 +25,7 @@ public class App
 	}
 
 	public boolean isEvenNumber(int number){
-		 s ="dd";
+		
 		boolean result = false;
 		if(number%2 == 0){
 			result = true;
